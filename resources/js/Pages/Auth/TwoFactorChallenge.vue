@@ -8,11 +8,11 @@
 
         <div class="mb-4 text-sm text-gray-600">
             <template v-if="! recovery">
-                Please confirm access to your account by entering the authentication code provided by your authenticator application.
+                Confirme el acceso a su cuenta ingresando el código de autenticación proporcionado por su aplicación de autenticación.
             </template>
 
             <template v-else>
-                Please confirm access to your account by entering one of your emergency recovery codes.
+                Confirme el acceso a su cuenta ingresando uno de sus códigos de recuperación de emergencia.
             </template>
         </div>
 
@@ -32,16 +32,16 @@
             <div class="flex items-center justify-end mt-4">
                 <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer" @click.prevent="toggleRecovery">
                     <template v-if="! recovery">
-                        Use a recovery code
+                        Usa un código de recuperación
                     </template>
 
                     <template v-else>
-                        Use an authentication code
+                        Usa un código de autenticación
                     </template>
                 </button>
 
                 <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
+                    Iniciar Sesión
                 </jet-button>
             </div>
         </form>
