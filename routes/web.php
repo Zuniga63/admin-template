@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,6 +25,22 @@ Route::get('/', function () {
   ]);
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/panel', function () {
-  return Inertia::render('Dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+  // DASBOARD
+  Route::get('/panel', function () {
+    return Inertia::render('Dashboard');
+  })->name('dashboard');
+
+  //USERS
+  Route::resource('usuarios', UserController::class)->names([
+    'index' => 'users.index',
+    'create' => 'users.create',
+    'store' => 'users.store',
+    'show' => 'users.show',
+    'edit' => 'users.edit',
+    'update' => 'users.update',
+    'destroy' => 'users.destroy'
+  ])->parameters([
+    'usuarios' => 'user'
+  ]);
+});

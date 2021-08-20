@@ -23,7 +23,7 @@
                   :href="route('dashboard')"
                   :active="route().current('dashboard')"
                 >
-                  Dashboard
+                  Panel
                 </jet-nav-link>
               </div>
             </div>
@@ -221,6 +221,15 @@
                       API Tokens
                     </jet-dropdown-link>
 
+                    <!-- Account Management -->
+                    <div class="block px-4 py-2 text-xs text-gray-400">
+                      Administrar Plataforma
+                    </div>
+
+                    <jet-dropdown-link :href="route('users.index')">
+                      Usuarios
+                    </jet-dropdown-link>
+
                     <div class="border-t border-gray-100"></div>
 
                     <!-- Authentication -->
@@ -298,7 +307,7 @@
               :href="route('dashboard')"
               :active="route().current('dashboard')"
             >
-              Dashboard
+              Panel
             </jet-responsive-nav-link>
           </div>
 
@@ -327,6 +336,10 @@
             </div>
 
             <div class="mt-3 space-y-1">
+              <!-- Account Management -->
+              <div class="block px-4 py-2 text-xs text-gray-400">
+                Administrar Cuenta
+              </div>
               <jet-responsive-nav-link
                 :href="route('profile.show')"
                 :active="route().current('profile.show')"
@@ -340,6 +353,16 @@
                 v-if="$page.props.jetstream.hasApiFeatures"
               >
                 API Tokens
+              </jet-responsive-nav-link>
+
+              <div class="block px-4 py-2 text-xs text-gray-400">
+                Administrar Sitio
+              </div>
+              <jet-responsive-nav-link
+                :href="route('users.index')"
+                :active="route().current('user.index')"
+              >
+                Usuarios
               </jet-responsive-nav-link>
 
               <!-- Authentication -->
