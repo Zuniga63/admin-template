@@ -230,6 +230,10 @@
                       Usuarios
                     </jet-dropdown-link>
 
+                    <jet-dropdown-link :href="route('config.index')">
+                      Configuración
+                    </jet-dropdown-link>
+
                     <div class="border-t border-gray-100"></div>
 
                     <!-- Authentication -->
@@ -358,11 +362,19 @@
               <div class="block px-4 py-2 text-xs text-gray-400">
                 Administrar Sitio
               </div>
+
               <jet-responsive-nav-link
                 :href="route('users.index')"
                 :active="route().current('user.index')"
               >
                 Usuarios
+              </jet-responsive-nav-link>
+              
+              <jet-responsive-nav-link
+                :href="route('users.index')"
+                :active="route().current('config.index')"
+              >
+                Configuración
               </jet-responsive-nav-link>
 
               <!-- Authentication -->

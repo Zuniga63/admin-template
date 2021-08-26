@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BusinessConfigController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -43,4 +44,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
   ])->parameters([
     'usuarios' => 'user'
   ])->only('index');
+
+  //RUTA PARA CONFIGURAR SITIO
+  Route::resource('configuracion', BusinessConfigController::class)
+    ->only('index', 'update')
+    ->names([
+      'index' => 'config.index',
+      'update' => 'config.update',
+    ])->parameters([
+      'configuracion' => 'businessConfig'
+    ]);
 });
