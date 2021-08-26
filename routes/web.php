@@ -34,13 +34,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
   //USERS
   Route::resource('usuarios', UserController::class)->names([
     'index' => 'users.index',
-    'create' => 'users.create',
-    'store' => 'users.store',
-    'show' => 'users.show',
-    'edit' => 'users.edit',
-    'update' => 'users.update',
-    'destroy' => 'users.destroy'
+    // 'create' => 'users.create',
+    // 'store' => 'users.store',
+    // 'show' => 'users.show',
+    // 'edit' => 'users.edit',
+    // 'update' => 'users.update',
+    // 'destroy' => 'users.destroy'
   ])->parameters([
     'usuarios' => 'user'
-  ]);
+  ])->only('index');
 });
