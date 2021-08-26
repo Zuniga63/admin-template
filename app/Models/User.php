@@ -90,4 +90,9 @@ class User extends Authenticatable implements MustVerifyEmail
   {
     $this->notify(new MyEmailVerification());
   }
+
+  public function sessions()
+  {
+    return $this->hasMany(Session::class, 'user_id');
+  }
 }
