@@ -46,12 +46,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
   ])->only('index');
 
   //RUTA PARA CONFIGURAR SITIO
-  Route::resource('configuracion', BusinessConfigController::class)
-    ->only('index', 'update')
-    ->names([
-      'index' => 'config.index',
-      'update' => 'config.update',
-    ])->parameters([
-      'configuracion' => 'businessConfig'
-    ]);
+  // Route::resource('configuracion', BusinessConfigController::class)
+  //   ->only('index', 'update')
+  //   ->names([
+  //     'index' => 'config.index',
+  //     'update' => 'config.update',
+  //   ])->parameters([
+  //     'configuracion' => 'businessConfig'
+  //   ]);
+  Route::get('/configuracion', [BusinessConfigController::class, 'index'])->name('config.index');
+  Route::put('/update-basic-config', [BusinessConfigController::class, 'updateBasicConfig'])->name('config.updateBasicConfig');
+  Route::delete('/delete-logo', [BusinessConfigController::class, 'deleteLogo'])->name('config.deleteLogo');
+  Route::delete('/delete-favicon', [BusinessConfigController::class, 'deleteFavicon'])->name('config.deleteFavicon');
 });
