@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Head :title="title" />
+    <!-- <Head :title="title" /> -->
+    <Head :title="title">
+      <!-- <title>Home</title> -->
+    </Head>
 
     <jet-banner />
 
